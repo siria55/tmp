@@ -1,72 +1,42 @@
-import QtQuick 2.5
+import QtQuick
+import QtQuick.Layouts
 import 'Components'
+
 Rectangle {
     id: root
-    color: 'gray'
-
+    Image {
+        id: backgroundImage
+        anchors.fill: parent
+        height: parent.height
+        width: parent.width
+        source: 'Assets/background.jpg'
+    }
     Title {
+        id: topText
+        width: root.width
         text: '健康数据管理中心'
     }
 
 
-    Rectangle {
-        id: buttonArea
-        width: parent.width
-        height: parent.height - topText.height
-        y: topText.height
-
-        Rectangle {
-            id: btn1
-            width: 150
-            height: 20
-            x: 100
-            Text {
-                text: '外部个体数据'
-            }
-            MouseArea {
-                anchors.fill: parent
-            }
+    GridLayout {
+        anchors.top: topText.bottom
+        anchors.horizontalCenter: topText.horizontalCenter
+        anchors.topMargin: 50
+        rows: 2
+        columns: 2
+        rowSpacing: 50
+        columnSpacing: 100
+        MyButton {
+            text: '外部个体数据'
         }
-
-        Rectangle {
-            id: btn2
-            width: 150
-            x: 100 + btn1.width
-            Text {
-                text: '数据加密'
-            }
+        MyButton {
+            text: '数据加密'
         }
-
-        Rectangle {
-            id: btn3
-
-            width: 150
-            height: 20
-            x: 100
-            y: btn1.height
-
-            anchors {
-                top: btn1.botton
-            }
-            Text {
-                text: '家居系统数据'
-            }
+        MyButton {
+            text: '家居系统数据'
         }
-
-        Rectangle {
-            id: btn4
-
-            width: 150
-            height: 20
-            x: 100 + btn3.width
-            y: btn1.height
-
-            anchors {
-                top: btn1.botton
-            }
-            Text {
-                text: '数据脱敏'
-            }
+        MyButton {
+            text: '数据脱敏'
         }
     }
 

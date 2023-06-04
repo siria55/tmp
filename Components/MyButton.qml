@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.0
+import QtQuick
+import QtQuick.Controls
 
 Button  {
     id: root
@@ -7,29 +7,42 @@ Button  {
     property color backgroundPressedColor: Qt.darker(backgroundDefaultColor, 1.2)
     property color contentItemTextColor: "white"
 
+//    property alias width: bg.implicitWidth
+//    property alias height: bg.implicitHeight
+
     text: "Button"
     flat: true
     contentItem: Text {
         text: root.text
         color: root.contentItemTextColor
-        font.pixelSize: 15
+        font.pixelSize: 40
         font.family: "Arial"
-        font.weight: Font.Thin
+        font.weight: Font.Bold
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
     }
 
     background: Rectangle {
-        implicitWidth: 83
-        implicitHeight: 37
+        id: bg
+        implicitWidth: 360
+        implicitHeight: 120
+        radius: 10
+        border.color: root.backgroundPressedColor
+        border.width: 3
         color: root.down ? root.backgroundPressedColor : root.backgroundDefaultColor
-        radius: 3
-        layer.enabled: true
+//
+//        layer.enabled: true
 //        layer.effect: DropShadow {
 //            transparentBorder: true
 //            color: root.down ? root.backgroundPressedColor : root.backgroundDefaultColor
 //            samples: 20
+//        }
+//        Image {
+//            width: parent.width
+//            height: parent.height
+//            fillMode: Image.PreserveAspectCrop
+//            source: '../Assets/btnBg.jpg'
 //        }
     }
 }

@@ -4,7 +4,7 @@ project(health VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6.4 REQUIRED COMPONENTS Quick QuickControls2)
 
 qt_standard_project_setup()
 
@@ -23,6 +23,10 @@ qt_add_qml_module(apphealth
         AIAssistant.qml
         Components/Title.qml
         Components/MyButton.qml
+    RESOURCES
+        Assets/1.png
+        Assets/background.jpg
+        Assets/btnBg.jpg
 )
 
 set_target_properties(apphealth PROPERTIES
@@ -34,7 +38,9 @@ set_target_properties(apphealth PROPERTIES
 )
 
 target_link_libraries(apphealth
-    PRIVATE Qt6::Quick
+    PRIVATE
+    Qt6::Quick
+    Qt6::QuickControls2
 )
 
 install(TARGETS apphealth
