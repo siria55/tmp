@@ -1,41 +1,27 @@
 import QtQuick
+import 'Components'
 
 Rectangle {
     id: root
-    color: 'gray'
 
-    Rectangle {
-        id: topTextArea
+    Title {
+        id: topText
         width: root.width
-        height: 60
-
-        anchors.topMargin: 15
-        Text {
-            id: topText
-            width: parent.width
-
-            anchors {
-                fill: parent
-            }
-
-            horizontalAlignment : Text.AlignHCenter
-            font.pixelSize: 60
-            text: '个人健康 AI 助理/中枢'
-        }
+        text: '个人健康 AI 助理/中枢'
     }
 
     Rectangle {
         id: avatarArea
 
         x: 100
-        y: topTextArea.height
+        y: topText.height
 
         width: 300
         height: 300
 
         Image {
             anchors.fill: parent
-            source: 'assets/avatar.png'
+//            source: 'assets/avatar.png'
         }
     }
 
@@ -56,7 +42,7 @@ Rectangle {
     }
 
     Rectangle {
-        anchors.top: topTextArea.bottom
+        anchors.top: topText.bottom
         anchors.left: avatarArea.right
 
         Rectangle {
@@ -69,7 +55,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    stackview.push('Data.qml')
+                    stackView.push('DataDetail.qml')
                 }
 
             }
@@ -85,7 +71,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    stackview.push('DataManageCenter.qml')
+                    stackView.push('DataManage.qml')
                 }
             }
         }

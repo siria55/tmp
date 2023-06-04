@@ -1,26 +1,11 @@
 import QtQuick 2.5
-
+import 'Components'
 Rectangle {
     id: root
     color: 'gray'
 
-    Rectangle {
-        id: topTextArea
-        height: 60
-        width: root.width
-        anchors.topMargin: 15
-        Text {
-            id: topText
-            width: parent.width
-
-            anchors {
-                fill: parent
-            }
-
-            horizontalAlignment : Text.AlignHCenter
-            font.pixelSize: 60
-            text: '健康数据管理中心'
-        }
+    Title {
+        text: '健康数据管理中心'
     }
 
 

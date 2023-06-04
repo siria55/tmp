@@ -1,23 +1,35 @@
 import QtQuick
 
 Rectangle {
-    id: topTextArea
-    height: 60
-    // width: root.width
-    anchors.topMargin: 15
-
-    property alias text: title.text
+    id: root
+    height: 100
+    property alias text: topText.text
+    color: 'gray'
 
     Text {
-        id: title
-        width: parent.width
+        id: topText
 
-        anchors {
-            fill: parent
-        }
+        anchors.centerIn: parent
 
-        horizontalAlignment : Text.AlignHCenter
         font.pixelSize: 60
-        text: '默认标题'
+        text: '默认 Title'
+    }
+
+    Rectangle {
+        width: 100
+        height: 50
+        color: 'red'
+        Text {
+            id: backText
+            text: '<- back'
+            font.pixelSize: 20
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log(12321)
+                stackView.pop()
+            }
+        }
     }
 }

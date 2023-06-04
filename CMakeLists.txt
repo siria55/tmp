@@ -22,6 +22,7 @@ qt_add_qml_module(apphealth
         DataDetail.qml
         AIAssistant.qml
         Components/Title.qml
+        Components/MyButton.qml
 )
 
 set_target_properties(apphealth PROPERTIES

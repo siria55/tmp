@@ -6,9 +6,9 @@ Window {
     width: 1024
     height: 600
     visible: true
-    
+
     StackView {
-        id: stackview
+        id: stackView
         anchors.fill: parent
         initialItem: 'HomePage.qml'
     }
